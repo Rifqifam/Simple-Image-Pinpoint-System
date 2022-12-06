@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+     <div class="container">
+         
+         <img src="https://c8.alamy.com/comp/G21YA2/jakarta-administrative-map-with-flag-G21YA2.jpg" alt="dragon">
+         
+         <!-- <div class="dot onclik"  style="left: 50px;" ></div> -->
+    </div>
+
+    <div class="footer">
+        <form action="">
+            <label for="Title">Input Title</label>
+            <input type="text">
+            <br>
+            <label for="Content">Input Subject</label>
+            <textarea name="Content" id="" cols="30" rows="10"></textarea>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script>
+
+        var x;
+        var y;
+        var a;
+        var b;
+
+        //place holder variable.
+
+        $(document).ready(function() {
+            $(".container").on("click", function(event) {
+                $( ".dot" ).remove();
+                x = event.pageX - this.offsetLeft;
+                y = event.pageY - this.offsetTop;
+                a = $("img").width();
+                b = $("img").height();
+
+                x = (x/a*100).toFixed(1);
+                y = (y/b*100).toFixed(1);
+
+                console.log("X Coordinate: " + x + " Y Coordinate: " + y );
+                console.log("width: " + a + " height: " + b );
+
+                var dot = document.createElement("div");
+                dot.className = 'dot';
+                dot.setAttribute("style", "left: calc(" + (x)  + "% - 5px); top: calc(" + (y) + "% - 5px);");
+
+                dot.setAttribute("data-top",x+ "%");
+                dot.setAttribute("data-left",y+"%");
+                document.querySelector(".container").appendChild(dot);
+            });
+        });
+
+        // addEventListener("click", addDot);
+
+        // function addDot(event){
+        //     var dot = document.createElement("div");
+        // }
+        
+        // $("img").mouseenter(function(){
+            
+        // })
+
+    </script>
+</body>
+</html>
